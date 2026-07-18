@@ -12,7 +12,7 @@ This lab investigates the primary factors that influence Lambda cost and builds 
 
 Build a repeatable experiment that measures and explains the cost of AWS Lambda workloads.
 
-The objective is to understand **why** a Lambda workload costs what it does, rather than simply calculating its price.
+The objective is to understand how Lambda execution characteristics translate into AWS charges, rather than simply reading the final cost from AWS billing.
 
 ## 🧱 Architecture
 
