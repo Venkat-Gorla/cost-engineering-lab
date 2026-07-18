@@ -2,27 +2,19 @@
 
 ## Problem
 
-AWS Lambda is widely used for building serverless applications because of its automatic scaling and pay-per-use pricing model. While the pricing model appears simple, the actual cost of a Lambda workload depends on multiple factors including invocation count, execution duration, allocated memory, and generated logs.
+AWS Lambda provides a simple pay-per-use pricing model, but the actual cost of a workload depends on multiple runtime characteristics.
 
-Engineers often know how to deploy Lambda functions but lack an intuitive understanding of which runtime characteristics have the greatest impact on cost.
+While deploying Lambda functions is straightforward, understanding the relationship between execution behavior, CloudWatch metrics, and AWS billing is considerably less obvious.
 
-This lab investigates the relationship between Lambda execution behavior, CloudWatch metrics, and AWS billing.
+This lab investigates the primary factors that influence Lambda cost and builds an intuition for explaining AWS billing.
 
 ## Goal
 
-Build a repeatable experiment that measures the cost of running AWS Lambda workloads under different execution characteristics.
+Build a repeatable experiment that measures and explains the cost of AWS Lambda workloads.
 
-The experiment will:
+The objective is to understand **why** a Lambda workload costs what it does, rather than simply calculating its price.
 
-- Deploy a simple Lambda function.
-- Execute controlled workloads.
-- Collect CloudWatch metrics.
-- Correlate runtime metrics with AWS Cost Explorer.
-- Document the observed billing behavior.
-
-The objective is to understand **why** a Lambda workload costs what it does rather than simply calculating its final price.
-
-## Architecture
+## 🧱 Architecture
 
 ```text
                 Invoke Workload
@@ -44,19 +36,19 @@ Python Analysis
 Findings
 ```
 
-## Technology Stack
+## 🛠 Tech Stack
 
-- Python
-- AWS Lambda
-- Amazon CloudWatch
-- AWS Cost Explorer API
-- boto3
+| **Category**      | Technology        |
+| ----------------- | ----------------- |
+| **Language**      | Python            |
+| **Compute**       | AWS Lambda        |
+| **Monitoring**    | Amazon CloudWatch |
+| **Cost Analysis** | AWS Cost Explorer |
 
 ## Success Criteria
 
-- Deploy and invoke a Lambda function programmatically.
-- Generate multiple workload scenarios.
-- Retrieve execution metrics from CloudWatch.
-- Retrieve billing information from Cost Explorer.
-- Explain how invocation count, execution duration, memory allocation, and logging contribute to overall Lambda cost.
-- Document all findings with reproducible experiments.
+- Deploy and execute a representative AWS Lambda workload.
+- Measure the runtime characteristics of the workload.
+- Correlate runtime metrics with AWS billing data.
+- Explain the primary factors that contribute to Lambda cost.
+- Document findings and key engineering insights.
