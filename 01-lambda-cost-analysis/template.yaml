@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Cost Engineering - Lambda Cost Analysis
+
+Parameters:
+  LambdaMemory:
+    Type: Number
+    Default: 512
+    Description: Memory allocated to the Lambda function (MB)
+
+Resources:
+  LambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: cost-engineering-lab-01-lambda
+      CodeUri: lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.12
+      MemorySize: !Ref LambdaMemory
+      Timeout: 30
+      Architectures:
+        - arm64
+
+Outputs:
+  FunctionName:
+    Description: Lambda function name
+    Value: !Ref LambdaFunction
+
+  FunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt LambdaFunction.Arn
