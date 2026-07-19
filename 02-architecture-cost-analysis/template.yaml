@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Cost Engineering Lab 02 - Architecture Cost Analysis
+
+Resources:
+  EventsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: cost-engineering-lab-02-events
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  CostEngineeringLab02Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: cost-engineering-lab-02-lambda
+      CodeUri: lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.12
+      MemorySize: 512
+      Timeout: 30
+      Architectures:
+        - arm64
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - dynamodb:PutItem
+              Resource: !GetAtt EventsTable.Arn
+
+Outputs:
+  DynamoDBTableName:
+    Description: DynamoDB table name
+    Value: !Ref EventsTable
+
+  LambdaFunctionName:
+    Description: Lambda function name
+    Value: !Ref CostEngineeringLab02Function
