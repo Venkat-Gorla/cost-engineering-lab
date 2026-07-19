@@ -1,7 +1,8 @@
 """
 uv run tools/invoke.py
-uv run tools/invoke.py --count 5
+uv run tools/invoke.py --count 100
 """
+
 import argparse
 import json
 import boto3
@@ -10,22 +11,13 @@ import boto3
 FUNCTION_NAME = "cost-engineering-lab-02-lambda"
 
 
-def print_response_payload(response_payload: dict) -> None:
-    status_code = response_payload.get("statusCode")
-    print(f"\nStatus Code: {status_code}")
-
-    body = response_payload.get("body")
-    if isinstance(body, str):
-        body = json.loads(body)
-
-    print("\nResponse:")
-    print(json.dumps(body, indent=2))
-
-
 def invoke(function_name: str, count: int) -> None:
     client = boto3.client("lambda")
 
-    for i in range(count):
+    succeeded = 0
+    failed = 0
+
+    for _ in range(count):
         response = client.invoke(
             FunctionName=function_name,
             InvocationType="RequestResponse",
@@ -33,10 +25,19 @@ def invoke(function_name: str, count: int) -> None:
 
         response_payload = json.loads(response["Payload"].read())
 
-        print(f"Invocation {i + 1}")
-        print_response_payload(response_payload)
-        if i < count - 1:
-            print("\n" + "-" * 40)
+        if (
+            response.get("FunctionError") is None
+            and response_payload.get("statusCode") == 200
+        ):
+            succeeded += 1
+        else:
+            failed += 1
+
+    print("Invocation Summary")
+    print("-" * 40)
+    print(f"Total Invocations : {count}")
+    print(f"Succeeded         : {succeeded}")
+    print(f"Failed            : {failed}")
 
 
 def main() -> None:
