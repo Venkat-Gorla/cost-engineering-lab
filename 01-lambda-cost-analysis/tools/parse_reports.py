@@ -105,13 +105,13 @@ def print_summary(
     print("Execution Report Summary")
     print("========================")
 
-    print(f"Invocations     : {len(reports)}")
+    print(f"Invocations       : {len(reports)}")
     print(
-        f"Cold Starts     : "
+        f"Cold Starts       : "
         f"{sum(r.init_duration_ms is not None for r in reports)}"
     )
     print(
-        f"Warm Starts     : "
+        f"Warm Starts       : "
         f"{sum(r.init_duration_ms is None for r in reports)}"
     )
 
@@ -129,10 +129,16 @@ def print_summary(
 
     memory_mb = reports[0].memory_size_mb
 
-    print(f"Memory Size     : {memory_mb} MB")
-    print(f"Avg Duration    : {average_duration:.2f} ms")
-    print(f"Avg Billed      : {average_billed:.2f} ms")
-    print(f"Total Billed    : {total_billed} ms")
+    peak_memory_used = max(
+        report.max_memory_used_mb
+        for report in reports
+    )
+
+    print(f"Configured Memory : {memory_mb} MB")
+    print(f"Peak Memory Used  : {peak_memory_used} MB")
+    print(f"Avg Duration      : {average_duration:.2f} ms")
+    print(f"Avg Billed        : {average_billed:.2f} ms")
+    print(f"Total Billed      : {total_billed} ms")
 
 
 def main() -> None:

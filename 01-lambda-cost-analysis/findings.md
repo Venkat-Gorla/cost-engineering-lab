@@ -4,4 +4,6 @@
 
 - **2026-07-18** – During a cold start, the Lambda billed duration included both the initialization time and the function execution time. Subsequent warm invocations did not include an initialization phase, resulting in billed duration closely matching the function execution duration.
 
+- **2026-07-19** – Lambda compute billing is based on the configured memory allocation (512 MB), not the peak memory used during execution (36 MB). Peak memory usage is useful for capacity planning and optimization but does not directly determine compute charges.
+
 - **2026-07-19** – Validated that Lambda compute usage (GB-seconds) can be accurately derived from the configured memory allocation and the billed duration reported in Lambda `REPORT` logs. The calculated value (0.9625 GB-seconds) matched the AWS Billing dashboard (0.962 GB-seconds).

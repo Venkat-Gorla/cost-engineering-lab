@@ -2,10 +2,11 @@
 
 Execution Report Summary
 ========================
-Invocations     : 16
-Cold Starts     : 4
-Warm Starts     : 12
-Memory Size     : 512 MB
-Avg Duration    : 102.16 ms
-Avg Billed      : 120.31 ms
-Total Billed    : 1925 ms
+Invocations       : 16
+Cold Starts       : 4
+Warm Starts       : 12
+Configured Memory : 512 MB
+Peak Memory Used  : 36 MB
+Avg Duration      : 102.16 ms
+Avg Billed        : 120.31 ms
+Total Billed      : 1925 ms
