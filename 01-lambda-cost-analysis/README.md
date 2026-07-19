@@ -25,15 +25,16 @@ The objective is to understand how Lambda execution characteristics translate in
       ┌────────────────┴────────────────┐
       ▼                                 ▼
 CloudWatch Metrics             CloudWatch Logs
-      │
-      ▼
-AWS Cost Explorer
-      │
-      ▼
-Python Analysis
-      │
-      ▼
-Findings
+      │                                 │
+      └────────────────┬────────────────┘
+                       ▼
+                Python Analysis
+                       │
+                       ▼
+               AWS Cost Explorer
+                       │
+                       ▼
+                    Findings
 ```
 
 ## 🛠 Tech Stack
