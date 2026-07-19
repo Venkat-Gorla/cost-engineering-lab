@@ -1,0 +1,11 @@
+> uv run tools/parse_reports.py
+
+Execution Report Summary
+========================
+Invocations     : 16
+Cold Starts     : 4
+Warm Starts     : 12
+Memory Size     : 512 MB
+Avg Duration    : 102.16 ms
+Avg Billed      : 120.31 ms
+Total Billed    : 1925 ms

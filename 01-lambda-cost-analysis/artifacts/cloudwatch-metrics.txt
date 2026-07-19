@@ -1,0 +1,8 @@
+> uv run tools/collect_metrics.py
+
+Lambda Metrics
+==============
+Invocations : 5.0
+Duration    : 102.09 ms
+Errors      : 0.0
+Throttles   : 0.0
