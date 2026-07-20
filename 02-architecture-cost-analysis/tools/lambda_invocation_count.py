@@ -1,5 +1,5 @@
 """
-uv run tools/lambda_invocations.py
+uv run tools/lambda_invocation_count.py
 """
 
 from datetime import UTC, datetime
