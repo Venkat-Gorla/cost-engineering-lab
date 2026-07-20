@@ -48,8 +48,11 @@ CloudWatch Metrics             CloudWatch Logs
 
 ## Success Criteria
 
-- Deploy and execute a representative AWS Lambda workload.
-- Measure the runtime characteristics of the workload.
-- Correlate runtime metrics with AWS billing data.
-- Explain the primary factors that contribute to Lambda cost.
-- Document findings and key engineering insights.
+| Check                                   | Status |
+| --------------------------------------- | ------ |
+| Representative Lambda workload executed | ✅     |
+| Runtime metrics collected               | ✅     |
+| Lambda REPORT logs analyzed             | ✅     |
+| Runtime correlated with AWS billing     | ✅     |
+| Primary Lambda cost drivers explained   | ✅     |
+| Findings documented                     | ✅     |
