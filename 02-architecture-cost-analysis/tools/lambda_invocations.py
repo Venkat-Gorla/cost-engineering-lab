@@ -41,11 +41,13 @@ def get_total_invocations(function_name: str) -> int:
 def main() -> None:
     total = get_total_invocations(FUNCTION_NAME)
 
+    TIME_FORMAT = "%Y-%m-%d %H:%M:%S UTC"
+
     print("Lambda Invocations")
     print("-" * 40)
-    print(f"Function : {FUNCTION_NAME}")
-    print(f"From     : {START_TIME.isoformat()}")
-    print(f"To       : {datetime.now(UTC).isoformat()}")
+    print(f"Function   : {FUNCTION_NAME}")
+    print(f"Start Time : {START_TIME.strftime(TIME_FORMAT)}")
+    print(f"End Time   : {datetime.now(UTC).strftime(TIME_FORMAT)}")
     print()
     print(f"Total Invocations : {total}")
 
