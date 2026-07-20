@@ -52,10 +52,13 @@ def main() -> None:
         end_time,
     )
 
+    TIME_FORMAT = "%Y-%m-%d %H:%M:%S UTC"
+
     print("DynamoDB Metrics")
     print("-" * 40)
     print(f"Table      : {TABLE_NAME}")
-    print("Time Window: Last 10 minutes")
+    print(f"Start Time : {start_time.strftime(TIME_FORMAT)}")
+    print(f"End Time   : {end_time.strftime(TIME_FORMAT)}")
     print()
     print(f"Consumed Write Capacity Units: {consumed_writes:.2f}")
     print(f"Consumed Read Capacity Units : {consumed_reads:.2f}")
