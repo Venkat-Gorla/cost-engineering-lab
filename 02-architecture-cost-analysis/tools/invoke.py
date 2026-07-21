@@ -1,6 +1,7 @@
 """
 uv run tools/invoke.py
 uv run tools/invoke.py --count 100
+uv run tools/invoke.py --count 200
 """
 
 import argparse
@@ -17,7 +18,14 @@ def invoke(function_name: str, count: int) -> None:
     succeeded = 0
     failed = 0
 
-    for _ in range(count):
+    progress_interval = None
+    next_progress = None
+
+    if count > 100:
+        progress_interval = max(1, count // 10)
+        next_progress = progress_interval
+
+    for i in range(1, count + 1):
         response = client.invoke(
             FunctionName=function_name,
             InvocationType="RequestResponse",
@@ -33,7 +41,12 @@ def invoke(function_name: str, count: int) -> None:
         else:
             failed += 1
 
-    print("Invocation Summary")
+        if next_progress is not None and (i >= next_progress or i == count):
+            percent = int(i * 100 / count)
+            print(f"Progress: {percent}% ({i}/{count})")
+            next_progress += progress_interval
+
+    print("\nInvocation Summary")
     print("-" * 40)
     print(f"Total Invocations : {count}")
     print(f"Succeeded         : {succeeded}")
