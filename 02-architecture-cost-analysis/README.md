@@ -59,5 +59,5 @@ The objective is to identify the cost contribution of each AWS service, independ
 | Controlled workload generated                   | ✅         |
 | Lambda cost drivers measured                    | ✅         |
 | DynamoDB cost drivers measured                  | ✅         |
-| Architecture cost validated against AWS billing | ⏳ Pending |
-| Findings documented                             | ⏳ Pending |
+| Architecture cost validated against AWS billing | ✅         |
+| Findings documented                             | ✅         |
