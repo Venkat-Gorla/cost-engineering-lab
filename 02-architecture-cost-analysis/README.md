@@ -41,16 +41,6 @@ The objective is to identify the cost contribution of each AWS service, independ
             Findings
 ```
 
-## 🛠 Tech Stack
-
-| **Category**      | **Technology**    |
-| ----------------- | ----------------- |
-| **Language**      | Python            |
-| **Compute**       | AWS Lambda        |
-| **Database**      | Amazon DynamoDB   |
-| **Monitoring**    | Amazon CloudWatch |
-| **Cost Analysis** | AWS Cost Explorer |
-
 ## Success Criteria
 
 | **Check**                                       | **Status** |

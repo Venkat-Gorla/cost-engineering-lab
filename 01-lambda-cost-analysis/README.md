@@ -37,15 +37,6 @@ CloudWatch Metrics             CloudWatch Logs
                     Findings
 ```
 
-## 🛠 Tech Stack
-
-| **Category**      | Technology        |
-| ----------------- | ----------------- |
-| **Language**      | Python            |
-| **Compute**       | AWS Lambda        |
-| **Monitoring**    | Amazon CloudWatch |
-| **Cost Analysis** | AWS Cost Explorer |
-
 ## Success Criteria
 
 | Check                                   | Status |
