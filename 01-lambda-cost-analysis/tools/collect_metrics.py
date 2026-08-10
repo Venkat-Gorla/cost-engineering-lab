@@ -5,7 +5,6 @@ from __future__ import annotations
 
 from datetime import UTC, datetime, timedelta
 import boto3
-from pprint import pprint
 
 FUNCTION_NAME = "cost-engineering-lab-01-lambda"
 NAMESPACE = "AWS/Lambda"
@@ -19,9 +18,9 @@ def print_lambda_metrics(response) -> None:
         value = result["Values"][0] if result["Values"] else 0
 
         if result["Id"] == "duration":
-            print(f"Duration    : {value:.2f} ms")
+            print(f"Avg Duration  : {value:.2f} ms")
         else:
-            print(f"{result['Id'].capitalize():12}: {value}")
+            print(f"{result['Id'].capitalize():14}: {value}")
 
 
 def main() -> None:

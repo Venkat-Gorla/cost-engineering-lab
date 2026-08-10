@@ -2,7 +2,7 @@
 
 Lambda Metrics
 ==============
-Invocations : 5.0
-Duration    : 102.09 ms
-Errors      : 0.0
-Throttles   : 0.0
+Invocations   : 5.0
+Avg Duration  : 102.09 ms
+Errors        : 0.0
+Throttles     : 0.0
